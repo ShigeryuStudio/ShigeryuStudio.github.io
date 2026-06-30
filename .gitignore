@@ -1,0 +1,11 @@
+# Scripts locaux — ne pas versionner
+deploy.bat
+git-init.bat
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+*.swp

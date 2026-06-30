@@ -24,6 +24,13 @@
   <!-- ── Thème ────────────────────────────────────────────── -->
   <meta name="theme-color" content="#0d1117">
 
+  <!-- ── Sécurité ─────────────────────────────────────────── -->
+  <!-- CSP : autorise uniquement les ressources du même domaine -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none';">
+  <!-- Ne transmet pas le referrer en cross-origin -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <!-- ── Favicon SVG inline ───────────────────────────────── -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d1117'/><text x='16' y='23' font-family='-apple-system,sans-serif' font-size='20' font-weight='900' text-anchor='middle' fill='%2358a6ff'>S</text></svg>">
 
