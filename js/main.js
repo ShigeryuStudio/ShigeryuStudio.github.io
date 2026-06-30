@@ -39,7 +39,7 @@ const TRANSLATIONS = {
 
     "project.wiiu.title": "WiiU GamePad Overlay",
     "project.wiiu.desc":  "Use your PC screen as a WiiU GamePad display. Lightweight overlay compatible with Cemu.",
-    "project.wiiu.link":  "View on GitHub →",
+    "project.wiiu.link":  "View on itch.io →",
 
     /* Footer */
     "footer.brand": "Shigeryu Studio",
@@ -74,7 +74,7 @@ const TRANSLATIONS = {
 
     "project.wiiu.title": "WiiU GamePad Overlay",
     "project.wiiu.desc":  "Utilisez votre écran PC comme affichage GamePad WiiU. Overlay léger compatible avec l'émulateur Cemu.",
-    "project.wiiu.link":  "Voir sur GitHub →",
+    "project.wiiu.link":  "Voir sur itch.io →",
 
     /* Footer */
     "footer.brand": "Shigeryu Studio",
