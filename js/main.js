@@ -31,7 +31,7 @@ const TRANSLATIONS = {
 
     /* Projects */
     "projects.title":    "Current Projects",
-    "projects.subtitle": "What we're working on right now.",
+    "projects.subtitle": "What I'm working on right now.",
 
     "project.fs.title": "Fractal Snake",
     "project.fs.desc":  "Classic snake reinvented in 3D on a Menger sponge. Three game modes + real-time Online Versus.",
@@ -66,7 +66,7 @@ const TRANSLATIONS = {
 
     /* Projects */
     "projects.title":    "Projets en cours",
-    "projects.subtitle": "Ce sur quoi nous travaillons actuellement.",
+    "projects.subtitle": "Ce sur quoi je travaille actuellement.",
 
     "project.fs.title": "Fractal Snake",
     "project.fs.desc":  "Le snake classique réinventé en 3D sur une éponge de Menger. Trois modes de jeu + Versus en ligne en temps réel.",
