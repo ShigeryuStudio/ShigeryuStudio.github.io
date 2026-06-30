@@ -339,6 +339,12 @@ p  { color: var(--text-secondary); }
   font-size: 2rem;
   line-height: 1;
 }
+.project-card__img {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
 .project-card__tags {
   display: flex; flex-wrap: wrap; gap: .4rem;
 }

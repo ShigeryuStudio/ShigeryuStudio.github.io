@@ -25,7 +25,7 @@ const TRANSLATIONS = {
     "hero.label":   "Independent Studio",
     "hero.title":   "Shigeryu <span class=\"accent\">Studio</span>",
     "hero.uc":      "🚧 Website Under Construction 🚧",
-    "hero.desc":    "We craft games and tools that push creative boundaries. New projects — games, apps, and more — are on their way.",
+    "hero.desc":    "I design games, tools, and digital experiences with a creative approach. New projects are coming soon.",
     "hero.github":  "GitHub",
     "hero.contact": "Contact",
 
@@ -60,7 +60,7 @@ const TRANSLATIONS = {
     "hero.label":   "Studio Indépendant",
     "hero.title":   "Shigeryu <span class=\"accent\">Studio</span>",
     "hero.uc":      "🚧 Site en construction 🚧",
-    "hero.desc":    "Nous créons des jeux et des outils qui repoussent les limites créatives. De nouveaux projets — jeux, applications et plus encore — arrivent prochainement.",
+    "hero.desc":    "Je conçois des jeux, des outils et des expériences numériques avec une approche créative. De nouveaux projets arrivent bientôt.",
     "hero.github":  "GitHub",
     "hero.contact": "Contact",
 
