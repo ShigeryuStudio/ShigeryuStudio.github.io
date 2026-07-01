@@ -336,22 +336,24 @@ p  { color: var(--text-secondary); }
   outline-offset: 3px;
 }
 
-/* Image cover */
+/* Image cover — affiche l'image entière, sans crop */
 .project-card__cover {
   width: 100%;
-  height: 160px;
+  height: 180px;
   background: var(--bg-tag);
+  border-bottom: 1px solid var(--border);
+  border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--border);
-  padding: 1rem;
+  padding: 1.25rem;
 }
 .project-card__cover img {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
+  object-fit: contain;
   display: block;
 }
 
@@ -362,33 +364,6 @@ p  { color: var(--text-secondary); }
   flex-direction: column;
   gap: .85rem;
   flex: 1;
-}
-/* Cover image — icône carrée (ex: Fractal Snake) */
-.project-card__cover {
-  width: 100%;
-  border-radius: calc(var(--radius-lg) - 1px) calc(var(--radius-lg) - 1px) 0 0;
-  overflow: hidden;
-  background: var(--bg-tag);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 1 / 1;
-}
-.project-card__cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-/* Cover wide — screenshot paysage (ex: WiiU Overlay 525×325) */
-.project-card__cover--wide {
-  aspect-ratio: 525 / 325;
-}
-.project-card__img {
-  width: 64px;
-  height: 64px;
-  border-radius: var(--radius);
-  object-fit: cover;
 }
 .project-card__tags {
   display: flex; flex-wrap: wrap; gap: .4rem;
