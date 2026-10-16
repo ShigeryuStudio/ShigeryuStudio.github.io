@@ -1,228 +1,372 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fr">
 <head>
-  <!-- ── Meta de base ──────────────────────────────────────── -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="meta.titre">Shigeryu Studio — Atelier créatif : 3D, cosplay, jeux vidéo et applications</title>
+  <meta name="description" data-i18n-attr="content:meta.description" content="Shigeryu Studio, l’atelier créatif de Shigeryu : modélisation et impression 3D, cosplay, jeux vidéo, applications et créations avec l’IA.">
+  <meta name="theme-color" content="#0E1030">
 
-  <!-- Title & description mis à jour dynamiquement par main.js -->
-  <title>Shigeryu Studio — Independent Game &amp; App Studio</title>
-  <meta name="description" content="Shigeryu Studio — Independent game and app studio. Fractal Snake, WiiU GamePad Overlay, and more coming soon.">
-
-  <!-- ── SEO ──────────────────────────────────────────────── -->
+  <!-- Référencement et partage (repris de l'ancien site, adaptés au français) -->
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://shigeryustudio.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shigeryustudio.github.io/">
+  <meta property="og:site_name" content="Shigeryu Studio">
+  <meta property="og:title" data-i18n-attr="content:meta.ogTitre" content="Shigeryu Studio — Atelier créatif">
+  <meta property="og:description" data-i18n-attr="content:meta.ogDescription" content="Modélisation et impression 3D, cosplay, jeux vidéo, applications et créations avec l’IA.">
+  <meta property="og:locale" data-i18n-attr="content:meta.ogLocale" content="fr_FR">
 
-  <!-- ── Open Graph ───────────────────────────────────────── -->
-  <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://shigeryustudio.github.io/">
-  <meta property="og:title"       content="Shigeryu Studio">
-  <meta property="og:description" content="Independent Game &amp; App Studio">
-  <meta property="og:locale"      content="en_US">
-  <meta property="og:locale:alternate" content="fr_FR">
-
-  <!-- ── Thème ────────────────────────────────────────────── -->
-  <meta name="theme-color" content="#0d1117">
-
-  <!-- ── Sécurité ─────────────────────────────────────────── -->
-  <!-- CSP : autorise uniquement les ressources du même domaine -->
+  <!-- Sécurité (reprise de l'ancien site) : seules les ressources du site lui-même sont autorisées -->
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none';">
-  <!-- Ne transmet pas le referrer en cross-origin -->
+        content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <!-- ── Favicon SVG inline ───────────────────────────────── -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d1117'/><text x='16' y='23' font-family='-apple-system,sans-serif' font-size='20' font-weight='900' text-anchor='middle' fill='%2358a6ff'>S</text></svg>">
-
-  <!-- ── CSS ──────────────────────────────────────────────── -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Icône de l'onglet : la mascotte (PNG, le format le mieux reconnu par tous les navigateurs) -->
+  <link rel="icon" type="image/png" href="visuels/Icon.png?v=20261016m">
+  <link rel="apple-touch-icon" href="visuels/Icon.png?v=20261016m">
+  <!-- Polices hébergées sur le site (voir assets/fonts/ et le début de style.css) -->
+  <link rel="preload" href="assets/fonts/permanentmarker-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- ?v=… : numéro de version à changer à chaque mise à jour, pour que les navigateurs rechargent les fichiers -->
+  <link rel="stylesheet" href="assets/css/style.css?v=20261016m">
+  <script src="assets/js/js-actif.js?v=20261016m"></script>
+  <script src="assets/js/donnees.js?v=20261016m" defer></script>
+  <!-- Langues FR / EN : traductions et bouton de choix (voir le mode d'emploi en tête du fichier) -->
+  <script src="assets/js/i18n.js?v=20261016m" defer></script>
+  <script src="assets/js/accueil.js?v=20261016m" defer></script>
 </head>
-
 <body>
+  <a class="evitement" href="#contenu" data-i18n="nav.evitement">Aller au contenu</a>
 
-<!-- ════════════════════════════════════════════════════════════
-     NAVIGATION
-════════════════════════════════════════════════════════════ -->
-<header>
-  <nav class="nav" aria-label="Main navigation">
-    <div class="nav__inner">
+  <!-- Icônes (réutilisées partout via <use href="#i-...">) -->
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 2.5 21 7.5v9L12 21.5 3 16.5v-9z"/><path d="M3 7.5 12 12.5l9-5M12 12.5v9"/></symbol>
+      <symbol id="i-imprimante" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 8h18M10 8v3h4V8M12 11v2"/><path d="M8.5 18h7l-1-3.5h-5z"/></symbol>
+      <symbol id="i-casque" viewBox="0 0 24 24"><path d="M4 14a8 8 0 0 1 16 0v5H4z"/><path d="M7.5 13.5h9l-1 3h-7z"/><path d="M12 6V3"/></symbol>
+      <symbol id="i-brique" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="2"/><rect x="5.5" y="5.5" width="4.5" height="3.5" rx="1"/><rect x="14" y="5.5" width="4.5" height="3.5" rx="1"/></symbol>
+      <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/><path d="M9.5 9.5l2 2 3.5-3.5"/></symbol>
+      <symbol id="i-manette" viewBox="0 0 24 24"><path d="M7 7h10a5 5 0 0 1 4.9 6l-.8 4a2.5 2.5 0 0 1-4.3 1.2L14.5 16h-5l-2.3 2.2a2.5 2.5 0 0 1-4.3-1.2l-.8-4A5 5 0 0 1 7 7z"/><path d="M7.5 10v4M5.5 12h4"/><path d="M15.5 11h.01M17.5 13h.01"/></symbol>
+      <symbol id="i-fenetre" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="14" rx="2"/><path d="M2.5 8h19M8 21h8M12 18v3"/><path d="M5.5 6h.01M8 6h.01"/></symbol>
+      <symbol id="i-etincelle" viewBox="0 0 24 24"><path d="M12 3c.6 4.2 2.8 6.4 7 7-4.2.6-6.4 2.8-7 7-.6-4.2-2.8-6.4-7-7 4.2-.6 6.4-2.8 7-7z"/><path d="M19 15.5c.3 1.6 1 2.3 2.5 2.5-1.5.2-2.2.9-2.5 2.5-.3-1.6-1-2.3-2.5-2.5 1.5-.2 2.2-.9 2.5-2.5z"/></symbol>
+      <symbol id="i-colis" viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9M7.5 5.25l9 4.5"/></symbol>
+      <symbol id="i-fichier" viewBox="0 0 24 24"><path d="M6 2.5h8l4.5 4.5v14.5H6z"/><path d="M14 2.5V7h4.5"/><path d="M12 10.5l3.5 2v4L12 18.5l-3.5-2v-4z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.3 6.7h.01"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.4 2.8 2.2 4.5 5 4.8"/></symbol>
+      <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4.5"/><path d="M10 9v6l5-3z"/></symbol>
+      <symbol id="i-cintre" viewBox="0 0 24 24"><path d="M12 8.5a2 2 0 1 0-2-2"/><path d="M12 8.5v1.5L3 16.5c-.8.6-.4 1.5.5 1.5h17c.9 0 1.3-.9.5-1.5L12 10"/></symbol>
+      <symbol id="i-itch" viewBox="0 0 24 24"><path d="M3.5 9.5 5 4.5h14l1.5 5"/><path d="M3.5 9.5a2.1 2.1 0 0 0 4.25 0 2.1 2.1 0 0 0 4.25 0 2.1 2.1 0 0 0 4.25 0 2.1 2.1 0 0 0 4.25 0"/><path d="M5 11.5v8h14v-8"/><path d="M10 15.5h4M12 13.5v4"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M4 4l16 16M20 4 4 20"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3.5 6.5 8.5 7 8.5-7"/></symbol>
+      <symbol id="i-sortie" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+      <symbol id="i-fleche" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-haut" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    </defs>
+  </svg>
 
-      <!-- Logo -->
-      <a href="#" class="nav__logo" aria-label="Shigeryu Studio — home">
-        <span class="nav__logo-mark" aria-hidden="true">S</span>
-        <span data-i18n="nav.home">Shigeryu Studio</span>
+  <!-- ===================== EN-TÊTE ===================== -->
+  <header class="entete" id="entete">
+    <div class="conteneur entete-ligne">
+      <a class="logo" href="#accueil" aria-label="Shigeryu Studio, retour en haut de la page" data-i18n-attr="aria-label:nav.logo">
+        <img class="logo-icone" src="visuels/Icon.webp" alt="" width="300" height="346">
+        <span class="logo-texte">Shigeryu <em>Studio</em></span>
       </a>
-
-      <!-- Language toggle -->
-      <div class="lang-toggle" role="group" aria-label="Language selector">
-        <button class="lang-toggle__btn active" data-lang-btn="en" aria-pressed="true">EN</button>
-        <button class="lang-toggle__btn"        data-lang-btn="fr" aria-pressed="false">FR</button>
-      </div>
-
-    </div>
-  </nav>
-</header>
-
-
-<!-- ════════════════════════════════════════════════════════════
-     HERO
-════════════════════════════════════════════════════════════ -->
-<main>
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="container">
-
-      <!-- Label -->
-      <p class="hero__studio-label" aria-hidden="true">
-        ✦ <span data-i18n="hero.label">Independent Studio</span> ✦
-      </p>
-
-      <!-- Titre principal -->
-      <h1 class="hero__title" id="hero-title" data-i18n="hero.title">
-        Shigeryu <span class="accent">Studio</span>
-      </h1>
-
-      <!-- Badge Under Construction -->
-      <div class="uc-badge" role="status" aria-live="polite">
-        <span class="uc-badge__dot" aria-hidden="true"></span>
-        <span data-i18n="hero.uc">🚧 Website Under Construction 🚧</span>
-      </div>
-
-      <!-- Description -->
-      <p class="hero__desc" data-i18n="hero.desc">
-        I design games, tools, and digital experiences with a creative approach.
-        New projects are coming soon.
-      </p>
-
-      <!-- CTAs -->
-      <div class="hero__cta-group">
-        <a href="https://github.com/ShigeryuStudio"
-           class="btn btn--primary"
-           target="_blank" rel="noopener noreferrer">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-          <span data-i18n="hero.github">GitHub</span>
-        </a>
-
-        <a href="mailto:shigeryushop@gmail.com" class="btn btn--secondary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
-          shigeryushop@gmail.com
-        </a>
-      </div>
-
-      <!-- Réseaux sociaux -->
-      <div class="socials" aria-label="Social networks">
-        <a href="https://x.com/ShigeryuInsider" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter @ShigeryuInsider">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.26 5.632 5.904-5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <span>@ShigeryuInsider</span>
-        </a>
-        <a href="https://www.instagram.com/shigeryuinsta/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram @shigeryuinsta">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          <span>@shigeryuinsta</span>
-        </a>
-        <a href="https://www.youtube.com/@Shigeryu" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube @Shigeryu">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
-          <span>@Shigeryu</span>
-        </a>
-        <a href="https://www.tiktok.com/@shigeryutiktok" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok @shigeryutiktok">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.55V6.78a4.85 4.85 0 01-1.07-.09z"/></svg>
-          <span>@shigeryutiktok</span>
-        </a>
-        <a href="https://shigeryu.itch.io/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="itch.io — shigeryu">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.13 1.338C2.08 1.96.02 4.328 0 4.95v1.03c0 1.303 1.22 2.45 2.325 2.45 1.33 0 2.436-1.102 2.436-2.406 0 1.304 1.07 2.406 2.4 2.406 1.328 0 2.362-1.102 2.362-2.406 0 1.304 1.106 2.406 2.435 2.406h.023c1.33 0 2.436-1.102 2.436-2.406 0 1.304 1.034 2.406 2.363 2.406 1.33 0 2.4-1.102 2.4-2.406 0 1.304 1.106 2.406 2.435 2.406C22.78 8.43 24 7.283 24 5.98V4.95c-.02-.622-2.08-2.99-3.13-3.612C19.1.675 4.9.675 3.13 1.338zM6.9 10.505l-.024.004c-.37.058-.63.37-.63.743v7.75c0 .4.302.745.7.782 1.48.13 3.247.207 5.054.207 1.808 0 3.573-.076 5.054-.207.4-.037.7-.382.7-.782v-7.75c0-.397-.28-.718-.672-.75C15.39 10.4 12.715 10.3 12 10.3c-.74 0-3.395.1-5.1.205zm.9 2.045h8.4v4.95h-8.4v-4.95zm1.4 1.05v2.85h2.3v-2.85H9.2zm3.7 0v2.85h2.3v-2.85H12.9z"/></svg>
-          <span>itch.io</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════════════════════
-       PROJECTS
-  ════════════════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="projects-title">
-    <div class="container">
-
-      <hr class="divider" style="margin-bottom:3rem;">
-
-      <div class="section__header">
-        <h2 id="projects-title" data-i18n="projects.title">Current Projects</h2>
-        <p data-i18n="projects.subtitle">What I'm working on right now.</p>
-      </div>
-
-      <div class="projects-grid">
-
-        <!-- ── Fractal Snake ── -->
-        <article class="project-card" aria-label="Fractal Snake">
-          <div class="project-card__cover">
-            <img src="assets/img/fractal-snake.png" alt="Fractal Snake icon" loading="lazy">
-          </div>
-          <div class="project-card__inner">
-            <div class="project-card__tags">
-              <span class="tag tag--green">Android</span>
-              <span class="tag tag--accent">Online</span>
-              <span class="tag">3D Snake</span>
-            </div>
-            <div class="project-card__body">
-              <h3 data-i18n="project.fs.title">Fractal Snake</h3>
-              <p data-i18n="project.fs.desc">Classic snake reinvented in 3D on a Menger sponge.</p>
-            </div>
-            <a href="https://play.google.com/store/apps/details?id=com.shigeryustudio.fractalsnake"
-               class="project-card__link"
-               target="_blank" rel="noopener noreferrer"
-               data-i18n="project.fs.link">Google Play →</a>
-          </div>
-        </article>
-
-        <!-- ── WiiU GamePad Overlay ── -->
-        <article class="project-card" aria-label="WiiU GamePad Overlay">
-          <div class="project-card__cover">
-            <img src="assets/img/wiiu-gamepad-overlay.png" alt="WiiU GamePad Overlay screenshot" loading="lazy">
-          </div>
-          <div class="project-card__inner">
-            <div class="project-card__tags">
-              <span class="tag">PC</span>
-              <span class="tag">Cemu</span>
-              <span class="tag">Open Source</span>
-            </div>
-            <div class="project-card__body">
-              <h3 data-i18n="project.wiiu.title">WiiU GamePad Overlay</h3>
-              <p data-i18n="project.wiiu.desc">Use your PC screen as a WiiU GamePad display.</p>
-            </div>
-            <a href="https://shigeryu.itch.io/wiiu-gamepad-overlay"
-               class="project-card__link"
-               target="_blank" rel="noopener noreferrer"
-               data-i18n="project.wiiu.link">View on itch.io →</a>
-          </div>
-        </article>
-
+      <button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="menu-barres" aria-hidden="true"></span><span class="sr">Ouvrir le menu</span>
+      </button>
+      <nav class="menu" id="menu-principal" aria-label="Navigation principale" data-i18n-attr="aria-label:nav.principale">
+        <ul>
+          <li><a href="#accueil" data-i18n="nav.accueil">Accueil</a></li>
+          <li><a href="#projets" data-i18n="nav.projets">Projets</a></li>
+          <li><a href="#shop" data-i18n="nav.shop">Shop</a></li>
+          <li><a href="#reseaux" data-i18n="nav.reseaux">Réseaux</a></li>
+          <li><a href="#a-propos" data-i18n="nav.apropos">À propos</a></li>
+          <li><a class="menu-contact" href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Choix de la langue : visible seulement quand i18n.js fonctionne (classe i18n-ok) -->
+      <div class="langue" role="group" aria-label="Langue / Language">
+        <button class="langue-choix" type="button" data-langue="fr" lang="fr" aria-label="Français" aria-pressed="true">FR</button>
+        <span class="langue-sep" aria-hidden="true">|</span>
+        <button class="langue-choix" type="button" data-langue="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
       </div>
     </div>
-  </section>
-</main>
+  </header>
 
+  <main id="contenu">
 
-<!-- ════════════════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════════════════ -->
-<footer class="footer">
-  <div class="footer__inner">
-    <span class="footer__brand" data-i18n="footer.brand">Shigeryu Studio</span>
-    <nav class="footer__links" aria-label="Footer links">
-      <a href="https://github.com/ShigeryuStudio"
-         target="_blank" rel="noopener noreferrer"
-         data-i18n="footer.github">GitHub</a>
-      <a href="mailto:shigeryushop@gmail.com"
-         data-i18n="footer.contact">Contact</a>
-    </nav>
-    <p class="footer__copy" data-i18n="footer.copy">
-      © 2024–2026 Shigeryu Studio — All rights reserved.
-    </p>
-  </div>
-</footer>
+    <!-- ===================== HÉROS ===================== -->
+    <section class="heros" id="accueil" aria-labelledby="titre-heros">
+      <div class="conteneur heros-grille">
+        <div class="heros-texte">
+          <p class="hud"><span class="hud-point" aria-hidden="true"></span><span data-i18n="hero.hud">Joueur 1 · l’atelier est ouvert</span></p>
+          <h1 id="titre-heros" class="titre-main">
+            <span class="ligne" data-i18n="hero.ligne1">Bienvenue dans</span>
+            <span class="ligne" data-i18n="hero.ligne2">mon <span class="surligne">atelier&nbsp;créatif</span>&nbsp;!</span>
+          </h1>
+          <p class="heros-intro" data-i18n="hero.intro">Je partage ici mes créations et expérimentations autour de la 3D, des jeux vidéo, des applications et d’autres projets créatifs.</p>
+          <div class="actions">
+            <a class="bouton bouton--orange" href="#projets"><span data-i18n="hero.voirProjets">Voir les projets</span> <svg class="ico" aria-hidden="true"><use href="#i-fleche"/></svg></a>
+            <a class="bouton bouton--contour" href="#shop" data-i18n="hero.visiterShop">Visiter le shop</a>
+          </div>
+          <p class="note-main" aria-hidden="true"><svg viewBox="0 0 60 40" class="note-fleche"><path d="M4 6 C 20 4, 40 12, 50 32"/><path d="M42 28 50 33 52 24"/></svg><span data-i18n="hero.note">appuie sur Start&nbsp;!</span></p>
+        </div>
 
+        <div class="heros-scene" aria-hidden="true">
+          <svg class="scene" viewBox="0 0 520 460">
+            <defs>
+              <linearGradient id="g-halo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C4DFF"/><stop offset="1" stop-color="#3D2A9E"/></linearGradient>
+              <linearGradient id="g-ecran" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1F55"/><stop offset="1" stop-color="#0E1030"/></linearGradient>
+              <pattern id="g-grille" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="#2C3280" stroke-width="1"/></pattern>
+              <!-- Stries d'impression : une ligne par couche (15 couches entre le plateau y=340 et le haut du bateau y=266) -->
+              <pattern id="g-couches" x="0" y="340" width="8" height="4.933" patternUnits="userSpaceOnUse"><rect width="8" height="4.933" fill="#FF7A2F"/><rect y="4" width="8" height=".933" fill="#D35A1E"/></pattern>
+              <!-- Petit bateau « Benchy », le modèle de test d'impression 3D bien connu (dessiné une fois, affiché via <use>) -->
+              <g id="benchy" stroke="#07081A" stroke-width="3" stroke-linejoin="round">
+                <rect x="391" y="266" width="16" height="6" rx="2" fill="url(#g-couches)"/>
+                <rect x="394" y="271" width="10" height="16" fill="url(#g-couches)"/>
+                <rect x="374" y="286" width="48" height="7" rx="2" fill="url(#g-couches)"/>
+                <path d="M378 293h40v24h-40z" fill="url(#g-couches)"/>
+                <path d="M389 317v-11a7 7 0 0 1 14 0v11z" fill="#22265C"/>
+                <path d="M364 316 448 309c2 13-4 25-17 31h-57z" fill="url(#g-couches)"/>
+                <circle cx="432" cy="320" r="3" fill="#22265C" stroke-width="2"/>
+              </g>
+              <!-- Fenêtres d'affichage animées (voir style.css) : couches déjà imprimées / couche en cours derrière la buse -->
+              <!-- Lueur dorée de « validation » quand l'impression est terminée -->
+              <radialGradient id="g-lueur"><stop offset="0" stop-color="#FFF4C2" stop-opacity=".95"/><stop offset=".45" stop-color="#FFD23F" stop-opacity=".4"/><stop offset="1" stop-color="#FFD23F" stop-opacity="0"/></radialGradient>
+              <path id="etoile" d="M0-9C1-3 3-1 9 0C3 1 1 3 0 9C-1 3-3 1-9 0C-3-1-1-3 0-9Z"/>
+              <clipPath id="clip-couches-faites"><rect class="clip-faites" x="350" y="264" width="110" height="82"/></clipPath>
+              <clipPath id="clip-couche-en-cours"><rect class="clip-en-cours" x="355" y="335.067" width="100" height="5.4"/></clipPath>
+            </defs>
+            <!-- Halo -->
+            <circle cx="270" cy="220" r="190" fill="url(#g-halo)" opacity=".55"/>
+            <circle cx="270" cy="220" r="150" fill="none" stroke="#C4B5FD" stroke-width="2" stroke-dasharray="4 10" opacity=".5" class="scene-orbite"/>
 
-<!-- ── Scripts ───────────────────────────────────────────────── -->
-<script src="js/main.js"></script>
+            <!-- Bureau : les pieds sont dessinés AVANT le plateau pour passer derrière lui (leur haut est caché) -->
+            <rect x="60" y="384" width="16" height="58" fill="#5B3BD1" stroke="#07081A" stroke-width="4"/>
+            <rect x="444" y="384" width="16" height="58" fill="#5B3BD1" stroke="#07081A" stroke-width="4"/>
+            <rect x="20" y="372" width="480" height="22" rx="11" fill="#7C4DFF" stroke="#07081A" stroke-width="4"/>
 
+            <!-- Écran avec cube filaire (descendu de 34 : le pied repose sur le bureau, dessus du bureau à y=372) -->
+            <g class="scene-ecran" transform="translate(0 34)">
+              <rect x="44" y="96" width="270" height="190" rx="18" fill="#F3F1FF" stroke="#07081A" stroke-width="5"/>
+              <rect x="58" y="110" width="242" height="160" rx="10" fill="url(#g-ecran)"/>
+              <rect x="58" y="110" width="242" height="160" rx="10" fill="url(#g-grille)"/>
+              <g class="scene-cube" stroke-width="3" fill="none" stroke-linejoin="round">
+                <path d="M179 142 228 168v52l-49 26-49-26v-52z" stroke="#C4B5FD"/>
+                <path d="M130 168l49 26 49-26M179 194v52" stroke="#FF7A2F"/>
+                <circle cx="179" cy="142" r="4" fill="#FFD23F" stroke="none"/>
+                <circle cx="130" cy="220" r="4" fill="#FFD23F" stroke="none"/>
+                <circle cx="228" cy="220" r="4" fill="#FFD23F" stroke="none"/>
+              </g>
+              <rect x="164" y="286" width="30" height="40" fill="#C4B5FD" stroke="#07081A" stroke-width="5"/>
+              <rect x="120" y="322" width="118" height="16" rx="8" fill="#F3F1FF" stroke="#07081A" stroke-width="5"/>
+              <!-- Post-it -->
+              <g transform="rotate(-8 290 112)">
+                <rect x="262" y="78" width="70" height="62" fill="#FFD23F" stroke="#07081A" stroke-width="4"/>
+                <text x="297" y="108" text-anchor="middle" class="scene-main" data-i18n="scene.idee">Idée</text>
+                <text x="297" y="128" text-anchor="middle" class="scene-main" data-i18n="scene.numero">n°42</text>
+              </g>
+            </g>
+
+            <!-- Imprimante 3D -->
+            <g class="scene-imprimante">
+              <rect x="330" y="176" width="150" height="196" rx="12" fill="#22265C" stroke="#07081A" stroke-width="5"/>
+              <rect x="330" y="176" width="150" height="26" rx="10" fill="#FF7A2F" stroke="#07081A" stroke-width="5"/>
+              <rect x="346" y="340" width="118" height="12" rx="3" fill="#C4B5FD" stroke="#07081A" stroke-width="4"/>
+              <!-- Effet « magique » de fin d'impression (1/2) : lueur derrière le bateau -->
+              <circle class="lueur-fin" cx="406" cy="306" r="62" fill="url(#g-lueur)"/>
+              <!-- Le bateau se construit couche par couche, jamais déformé :
+                   1) les couches terminées ; 2) la couche en cours, qui apparaît derrière la buse pendant son passage -->
+              <use href="#benchy" class="scene-objet" clip-path="url(#clip-couches-faites)"/>
+              <use href="#benchy" class="scene-objet-couche" clip-path="url(#clip-couche-en-cours)"/>
+              <!-- Effet « magique » de fin d'impression (2/2) : étoiles qui scintillent et particules qui s'envolent -->
+              <g class="magie-fin" aria-hidden="true">
+                <g transform="translate(366 282)"><use href="#etoile" class="etincelle e1" fill="#FFD23F"/></g>
+                <g transform="translate(446 288) scale(.8)"><use href="#etoile" class="etincelle e2" fill="#F3F1FF"/></g>
+                <g transform="translate(352 322) scale(.6)"><use href="#etoile" class="etincelle e3" fill="#C4B5FD"/></g>
+                <g transform="translate(461 326) scale(.7)"><use href="#etoile" class="etincelle e4" fill="#FFD23F"/></g>
+                <g transform="translate(424 262) scale(.55)"><use href="#etoile" class="etincelle e5" fill="#F3F1FF"/></g>
+                <g transform="translate(388 262) scale(.65)"><use href="#etoile" class="etincelle e6" fill="#FFB27A"/></g>
+                <g transform="translate(380 330)"><circle class="particule p1" r="2.5" fill="#FFE89A"/></g>
+                <g transform="translate(430 328)"><circle class="particule p2" r="2" fill="#F3F1FF"/></g>
+                <g transform="translate(406 318)"><circle class="particule p3" r="2.5" fill="#C4B5FD"/></g>
+                <g transform="translate(452 314)"><circle class="particule p4" r="1.8" fill="#FFD23F"/></g>
+              </g>
+              <!-- Portique : le rail et la buse montent d'une couche à la fois ; la buse balaie la largeur de la couche,
+                   en synchronisation exacte avec l'apparition des couches (même durée, mêmes instants) -->
+              <g class="scene-portique">
+                <rect x="340" y="222" width="130" height="8" fill="#9AA0D8"/>
+                <g class="scene-buse">
+                  <rect x="392" y="214" width="26" height="24" rx="4" fill="#F3F1FF" stroke="#07081A" stroke-width="4"/>
+                  <path d="M400 238h10l-5 9z" fill="#FFD23F" stroke="#07081A" stroke-width="3"/>
+                </g>
+              </g>
+            </g>
+
+            <!-- Manette blanche simplifiée, posée à plat sur le bureau -->
+            <g class="scene-manette" transform="translate(36 304) scale(.85)" stroke="#07081A">
+              <rect x="18" y="1" width="28" height="10" rx="5" fill="#C9CCDA" stroke-width="3.5"/>
+              <rect x="92" y="1" width="28" height="10" rx="5" fill="#C9CCDA" stroke-width="3.5"/>
+              <path d="M34 6H104C120 6 130 16 132 30L136 62C138 74 128 82 118 78C110 75 104 66 98 58H40C34 66 28 75 20 78C10 82 0 74 2 62L6 30C8 16 18 6 34 6Z" fill="#F3F1FF" stroke-width="4"/>
+              <circle cx="36" cy="28" r="11" fill="#D9DCEF" stroke-width="3"/>
+              <circle cx="36" cy="28" r="5.5" fill="#B9BCD4" stroke="none"/>
+              <!-- joystick droit et croix remontés et réduits : ils restent à l'intérieur du contour (bas du corps à y=58) -->
+              <circle cx="87" cy="43" r="9" fill="#D9DCEF" stroke-width="3"/>
+              <circle cx="87" cy="43" r="4.5" fill="#B9BCD4" stroke="none"/>
+              <path d="M49.5 36h6v5h5v6h-5v5h-6v-5h-5v-6h5z" fill="#55577A" stroke-width="2.5"/>
+              <circle cx="106" cy="19" r="4.5" fill="#FF7A2F" stroke-width="2"/>
+              <circle cx="97" cy="28" r="4.5" fill="#3D7BFF" stroke-width="2"/>
+              <circle cx="115" cy="28" r="4.5" fill="#2BD982" stroke-width="2"/>
+              <circle cx="106" cy="37" r="4.5" fill="#7C4DFF" stroke-width="2"/>
+            </g>
+
+            <!-- Téléphone -->
+            <g class="scene-tel" transform="rotate(8 270 330)">
+              <rect x="252" y="300" width="38" height="70" rx="8" fill="#2BD982" stroke="#07081A" stroke-width="4"/>
+              <rect x="258" y="308" width="26" height="48" rx="3" fill="#0E1030"/>
+              <path d="M264 333l4 4 9-9" stroke="#2BD982" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </g>
+
+            <!-- Autocollants flottants -->
+            <g class="sticker s1"><rect x="14" y="40" width="132" height="36" rx="18" fill="#2BD982" stroke="#07081A" stroke-width="4"/><text x="80" y="65" text-anchor="middle" class="scene-sticker scene-sticker--sombre" data-i18n="scene.developper">Développer</text></g>
+            <g class="sticker s2"><rect x="362" y="44" width="128" height="36" rx="18" fill="#3D7BFF" stroke="#07081A" stroke-width="4"/><text x="426" y="69" text-anchor="middle" class="scene-sticker" data-i18n="scene.jeux">Jeux vidéo</text></g>
+            <g class="sticker s3"><rect x="430" y="118" width="62" height="36" rx="18" fill="#FFD23F" stroke="#07081A" stroke-width="4"/><text x="461" y="143" text-anchor="middle" class="scene-sticker scene-sticker--sombre" data-i18n="scene.ia">IA</text></g>
+            <g class="sticker s4"><rect x="4" y="226" width="64" height="36" rx="18" fill="#22D3EE" stroke="#07081A" stroke-width="4"/><text x="36" y="251" text-anchor="middle" class="scene-sticker scene-sticker--sombre">3D</text></g>
+
+            <!-- Étoiles -->
+            <path class="scintille t1" d="M330 20l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#FFD23F"/>
+            <path class="scintille t2" d="M150 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#C4B5FD"/>
+            <path class="scintille t3" d="M496 270l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF7A2F"/>
+          </svg>
+        </div>
+      </div>
+
+      <ul class="bandeau" aria-label="L’esprit de l’atelier" data-i18n-attr="aria-label:bandeau.label">
+        <li data-i18n="bandeau.imaginer">Imaginer</li><li data-i18n="bandeau.creer">Créer</li><li data-i18n="bandeau.modeliser">Modéliser</li><li data-i18n="bandeau.fabriquer">Fabriquer</li><li data-i18n="bandeau.developper">Développer</li><li data-i18n="bandeau.experimenter">Expérimenter</li>
+      </ul>
+    </section>
+
+    <!-- ===================== DOMAINES ===================== -->
+    <section class="section section--domaines" id="domaines" aria-labelledby="titre-domaines">
+      <div class="conteneur">
+        <header class="section-tete" data-apparait>
+          <p class="etiquette" data-i18n="domaines.etiquette">Sélection du personnage</p>
+          <h2 id="titre-domaines" class="titre-main" data-i18n="domaines.titre">Mes terrains de jeu</h2>
+          <p data-i18n="domaines.texte">Six univers, une même envie&nbsp;: imaginer, fabriquer et partager.</p>
+        </header>
+        <ul class="domaines" id="liste-domaines" data-apparait></ul>
+      </div>
+    </section>
+
+    <!-- ===================== PROJETS ===================== -->
+    <section class="section section--projets" id="projets" aria-labelledby="titre-projets">
+      <div class="conteneur">
+        <header class="section-tete" data-apparait>
+          <p class="etiquette" data-i18n="projets.etiquette">Sélection du niveau</p>
+          <h2 id="titre-projets" class="titre-main" data-i18n="projets.titre">Les projets</h2>
+          <p data-i18n="projets.texte">Idées, chantiers en cours, prototypes et créations terminées&nbsp;: chaque projet affiche où il en est.</p>
+        </header>
+
+        <p class="avis-demo" role="note" id="avis-demo" hidden data-i18n="projets.avis"><strong>À noter&nbsp;:</strong> les fiches marquées «&nbsp;Exemple&nbsp;» sont des démonstrations. Elles seront remplacées par de vrais projets.</p>
+
+        <div class="filtres" data-apparait>
+          <div class="filtre-groupe" role="group" aria-label="Filtrer par domaine" data-i18n-attr="aria-label:projets.filtreDomaine" id="filtres-domaine"></div>
+          <div class="filtre-groupe filtre-groupe--etats" role="group" aria-label="Filtrer par état" data-i18n-attr="aria-label:projets.filtreEtat" id="filtres-etat"></div>
+        </div>
+        <p class="compteur" id="compteur" aria-live="polite"></p>
+
+        <ul class="galerie" id="galerie"></ul>
+        <div class="vide" id="vide" hidden>
+          <p class="pixel" data-i18n="projets.vide">Aucun projet ici… pour l’instant&nbsp;!</p>
+          <button class="bouton bouton--contour" type="button" id="reinitialiser" data-i18n="projets.toutAfficher">Afficher tous les projets</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SHOP ===================== -->
+    <section class="section section--shop" id="shop" aria-labelledby="titre-shop">
+      <div class="conteneur">
+        <header class="section-tete" data-apparait>
+          <p class="etiquette" data-i18n="shop.etiquette">Boutique de l’auberge</p>
+          <h2 id="titre-shop" class="titre-main" data-i18n="shop.titre">Le shop</h2>
+          <p data-i18n="shop.texte">Les créations sont proposées sur des plateformes spécialisées. L’achat, le paiement et la livraison se font directement sur chacune d’elles.</p>
+        </header>
+        <ul class="boutiques" id="liste-boutiques" data-apparait></ul>
+      </div>
+    </section>
+
+    <!-- ===================== RÉSEAUX ===================== -->
+    <section class="section section--reseaux" id="reseaux" aria-labelledby="titre-reseaux">
+      <div class="conteneur reseaux-grille">
+        <header class="section-tete" data-apparait>
+          <p class="etiquette" data-i18n="reseaux.etiquette">Mode multijoueur</p>
+          <h2 id="titre-reseaux" class="titre-main" data-i18n="reseaux.titre">On se suit&nbsp;?</h2>
+          <p data-i18n="reseaux.texte">Coulisses, avancées des projets et nouveautés&nbsp;: retrouvez l’atelier sur les réseaux.</p>
+        </header>
+        <ul class="reseaux" id="liste-reseaux" data-apparait></ul>
+      </div>
+    </section>
+
+    <!-- ===================== À PROPOS + CONTACT ===================== -->
+    <section class="section section--apropos" id="a-propos" aria-labelledby="titre-apropos">
+      <div class="conteneur apropos-grille">
+        <div class="carte-papier" data-apparait>
+          <p class="etiquette" data-i18n="apropos.etiquette">Fiche du créateur</p>
+          <h2 id="titre-apropos" class="titre-main" data-i18n="apropos.titre">À propos</h2>
+          <p data-i18n="apropos.texte1">Shigeryu Studio, c’est mon petit atelier créatif&nbsp;: de la 3D, des jeux vidéo, des applications et plein d’autres projets, parfois avec un coup de pouce de l’IA.</p>
+          <p data-i18n="apropos.texte2">Ici, je partage mes créations, mes essais et mes idées, qu’ils soient terminés ou encore en cours.</p>
+          <p class="signature">— Shigeryu</p>
+        </div>
+
+        <div class="carte-contact" id="contact" data-apparait>
+          <p class="etiquette" data-i18n="contact.etiquette">Envoyer un message</p>
+          <h2 class="titre-main" data-i18n="contact.titre">Contact</h2>
+          <p data-i18n="contact.texte">Une question, une idée, un projet à me proposer ou simplement envie de discuter&nbsp;? Écris-moi&nbsp;!</p>
+          <a class="bouton bouton--orange bouton--large" id="lien-mail" href="mailto:shigeryustudio@gmail.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><span id="texte-mail">shigeryustudio@gmail.com</span></a>
+          <p class="petit" id="delai">Je fais de mon mieux pour répondre sous 48 heures ouvrées.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== PIED DE PAGE ===================== -->
+  <footer class="pied">
+    <svg class="pied-paysage" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#1D2152" d="M0 120V70h60V50h40v20h80V30h40v40h60V60h60V20h40v50h100V50h60v30h80V40h40v30h80V10h40v60h60V50h60v20h80V30h40v40h60v50z"/>
+      <path fill="#07081A" d="M0 120V96h80V86h60v10h120V80h80v16h100V90h120v14h80V84h100v12h120V88h80v8h120V82h80v38z"/>
+    </svg>
+    <div class="pied-contenu">
+      <div class="conteneur pied-grille">
+        <div class="pied-marque">
+          <a class="logo" href="#accueil">
+            <img class="logo-icone" src="visuels/Icon.webp" alt="" width="300" height="346" loading="lazy">
+            <span class="logo-texte">Shigeryu <em>Studio</em></span>
+          </a>
+          <p data-i18n="pied.description">Atelier créatif&nbsp;: 3D, cosplay, jeux vidéo, applications et créations avec l’IA.</p>
+          <p class="continuer pixel" data-i18n="pied.continuer">Continuer&nbsp;? <span class="clignote">▶ Oui</span></p>
+        </div>
+        <nav class="pied-nav" aria-label="Plan du site" data-i18n-attr="aria-label:pied.plan">
+          <p class="pied-titre" data-i18n="pied.niveaux">Niveaux</p>
+          <ul>
+            <li><a href="#accueil" data-i18n="nav.accueil">Accueil</a></li>
+            <li><a href="#projets" data-i18n="nav.projets">Projets</a></li>
+            <li><a href="#shop" data-i18n="nav.shop">Shop</a></li>
+            <li><a href="#reseaux" data-i18n="nav.reseaux">Réseaux</a></li>
+            <li><a href="#a-propos" data-i18n="nav.apropos">À propos</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="pied-reseaux">
+          <p class="pied-titre" data-i18n="pied.multijoueur">Multijoueur</p>
+          <ul id="pied-reseaux"></ul>
+        </div>
+      </div>
+      <div class="conteneur pied-bas">
+        <p>© <span id="annee">2026</span> Shigeryu Studio</p>
+        <a class="haut" href="#accueil"><svg class="ico" aria-hidden="true"><use href="#i-haut"/></svg><span data-i18n="pied.haut">Retour au niveau&nbsp;1</span></a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
