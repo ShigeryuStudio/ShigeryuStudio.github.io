@@ -92,20 +92,24 @@
   function chargerSurvol(e) {
     var carte = e.target.closest && e.target.closest('.projet');
     var img = carte && carte.querySelector('.projet-survol[data-src]');
-    if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); }
+    if (!img) return;
+    if (img.hasAttribute('data-srcset')) { img.srcset = img.getAttribute('data-srcset'); img.removeAttribute('data-srcset'); }
+    img.src = img.getAttribute('data-src'); img.removeAttribute('data-src');
   }
   $('galerie').addEventListener('pointerover', chargerSurvol);
   $('galerie').addEventListener('focusin', chargerSurvol);
 
   // Chemins de visuels : les espaces et accents des noms de dossiers sont encodés pour l'adresse
   function chemin(c) { return esc(encodeURI(c)); }
+  // Deux tailles du même visuel : le navigateur choisit selon la définition de l'écran
+  function tailles(petit, grand) { return petit ? chemin(petit) + ' 1x, ' + chemin(grand) + ' 2x' : ''; }
 
   function carteProjet(p) {
     var d = domaineParId[p.domaine] || { titre: p.domaine, icone: 'cube', couleur: 'violet' };
     var titre = tr(p, 'titre');
     var visuel = p.image
-      ? '<img src="' + chemin(p.image) + '" alt="' + esc(tr(p, 'imageAlt') || t('visuel.duProjet') + titre) + '" loading="lazy" data-icone="' + d.icone + '">' +
-        (p.imageSurvol ? '<img class="projet-survol" data-src="' + chemin(p.imageSurvol) + '" alt="">' : '')
+      ? '<img src="' + chemin(p.image) + '"' + (p.image1x ? ' srcset="' + tailles(p.image1x, p.image) + '"' : '') + ' alt="' + esc(tr(p, 'imageAlt') || t('visuel.duProjet') + titre) + '" loading="lazy" data-icone="' + d.icone + '">' +
+        (p.imageSurvol ? '<img class="projet-survol" data-src="' + chemin(p.imageSurvol) + '"' + (p.imageSurvol1x ? ' data-srcset="' + tailles(p.imageSurvol1x, p.imageSurvol) + '"' : '') + ' alt="">' : '')
       : visuelManquant(d.icone);
     var lien = p.lien
       ? '<a class="projet-lien" href="' + esc(p.lien) + '" target="_blank" rel="noopener">' + esc(tr(p, 'lienTexte') || t('projet.voir')) + ' ' + ico('sortie') + nouvelOnglet() + '</a>'
@@ -242,7 +246,8 @@
   var entete = $('entete');
   function surDefilement() { entete.classList.toggle('defile', window.scrollY > 8); }
   window.addEventListener('scroll', surDefilement, { passive: true });
-  surDefilement();
+  // État initial lu juste après le premier affichage, pour ne pas forcer un recalcul de la mise en page
+  requestAnimationFrame(function () { setTimeout(surDefilement, 0); });
 
   if ('IntersectionObserver' in window) {
     var liensMenu = menu.querySelectorAll('a');

@@ -23,18 +23,20 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Icône de l'onglet : la mascotte (PNG, le format le mieux reconnu par tous les navigateurs) -->
-  <link rel="icon" type="image/png" href="visuels/Icon.png?v=20261018c">
-  <link rel="apple-touch-icon" href="visuels/Icon.png?v=20261018c">
+  <link rel="icon" type="image/png" href="visuels/Icon.png?v=20261018e">
+  <link rel="apple-touch-icon" href="visuels/Icon.png?v=20261018e">
   <!-- Polices hébergées sur le site (voir assets/fonts/ et le début de style.css) -->
   <link rel="preload" href="assets/fonts/permanentmarker-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/pixelifysans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/caveat-latin.woff2" as="font" type="font/woff2" crossorigin>
   <!-- ?v=… : numéro de version à changer à chaque mise à jour, pour que les navigateurs rechargent les fichiers -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261018c">
-  <script src="assets/js/js-actif.js?v=20261018c"></script>
-  <script src="assets/js/donnees.js?v=20261018c" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261018e">
+  <script src="assets/js/js-actif.js?v=20261018e"></script>
+  <script src="assets/js/donnees.js?v=20261018e" defer></script>
   <!-- Langues FR / EN : traductions et bouton de choix (voir le mode d'emploi en tête du fichier) -->
-  <script src="assets/js/i18n.js?v=20261018c" defer></script>
-  <script src="assets/js/accueil.js?v=20261018c" defer></script>
+  <script src="assets/js/i18n.js?v=20261018e" defer></script>
+  <script src="assets/js/accueil.js?v=20261018e" defer></script>
 </head>
 <body>
   <a class="evitement" href="#contenu" data-i18n="nav.evitement">Aller au contenu</a>
@@ -69,7 +71,7 @@
   <header class="entete" id="entete">
     <div class="conteneur entete-ligne">
       <a class="logo" href="#accueil" aria-label="Shigeryu Studio, retour en haut de la page" data-i18n-attr="aria-label:nav.logo">
-        <img class="logo-icone" src="visuels/Icon.webp" alt="" width="300" height="346">
+        <img class="logo-icone" src="visuels/Icon.webp" srcset="visuels/Icon-1x.webp 1x, visuels/Icon.webp 2x" alt="" width="300" height="346">
         <span class="logo-texte">Shigeryu <em>Studio</em></span>
       </a>
       <button class="menu-bouton" type="button" aria-expanded="false" aria-controls="menu-principal">
@@ -340,7 +342,7 @@
       <div class="conteneur pied-grille">
         <div class="pied-marque">
           <a class="logo" href="#accueil">
-            <img class="logo-icone" src="visuels/Icon.webp" alt="" width="300" height="346" loading="lazy">
+            <img class="logo-icone" src="visuels/Icon.webp" srcset="visuels/Icon-1x.webp 1x, visuels/Icon.webp 2x" alt="" width="300" height="346" loading="lazy">
             <span class="logo-texte">Shigeryu <em>Studio</em></span>
           </a>
           <p data-i18n="pied.description">Atelier créatif&nbsp;: 3D, cosplay, jeux vidéo, applications et créations avec l’IA.</p>

@@ -49,30 +49,32 @@ window.STUDIO = {
      lienTexte : texte du bouton de lien (facultatif, « Voir le projet » par défaut)
      plateforme : précision affichée à côté de la catégorie (facultatif, ex. 'Android', 'Windows')
      imageSurvol : deuxième visuel affiché au survol de la carte, par ex. une animation (facultatif)
+     image1x / imageSurvol1x : version plus petite du visuel pour les écrans d'ordinateur (facultatif) ;
+       image / imageSurvol servent alors de version « 2x » pour les écrans haute définition
   */
   projets: [
     { titre: 'Fractal Snake', domaine: 'jeux', plateforme: 'Android', etat: 'termine', avancement: 100, exemple: false,
-      image: 'assets/img/fractal-snake.webp', imageAlt: 'Icône du jeu Fractal Snake', imageAlt_en: 'Fractal Snake game icon',
+      image: 'assets/img/fractal-snake.webp', image1x: 'assets/img/fractal-snake-1x.webp', imageAlt: 'Icône du jeu Fractal Snake', imageAlt_en: 'Fractal Snake game icon',
       lien: 'https://play.google.com/store/apps/details?id=com.shigeryustudio.fractalsnake', lienTexte: 'Voir sur Google Play', lienTexte_en: 'View on Google Play',
       texte: 'Jeu Android disponible sur Google Play.', texte_en: 'Android game available on Google Play.' },
     { titre: 'WiiU GamePad Overlay', domaine: 'applications', plateforme: 'Windows', etat: 'termine', avancement: 100, exemple: false,
-      image: 'assets/img/wiiu-gamepad-overlay.webp', imageAlt: 'Visuel de l’application WiiU GamePad Overlay', imageAlt_en: 'WiiU GamePad Overlay app visual',
+      image: 'assets/img/wiiu-gamepad-overlay.webp', image1x: 'assets/img/wiiu-gamepad-overlay-1x.webp', imageAlt: 'Visuel de l’application WiiU GamePad Overlay', imageAlt_en: 'WiiU GamePad Overlay app visual',
       lien: 'https://shigeryu.itch.io/wiiu-gamepad-overlay', lienTexte: 'Voir sur itch.io', lienTexte_en: 'View on itch.io',
       texte: 'Application Windows disponible sur itch.io.', texte_en: 'Windows app available on itch.io.' },
     { titre: 'Épée Kokiri', domaine: 'impression', etat: 'termine', avancement: 100, exemple: false,
-      image: 'visuels/Impression 3D/Zelda/LinkSword.webp', imageAlt: 'Épée Kokiri imprimée en 3D', imageAlt_en: '3D-printed Kokiri Sword',
+      image: 'visuels/Impression 3D/Zelda/LinkSword.webp', image1x: 'visuels/Impression 3D/Zelda/LinkSword-1x.webp', imageAlt: 'Épée Kokiri imprimée en 3D', imageAlt_en: '3D-printed Kokiri Sword',
       lien: '',
       texte: 'Réplique de l’épée Kokiri de The Legend of Zelda: Ocarina of Time (remake), imprimée en 3D.',
       texte_en: '3D-printed replica of the Kokiri Sword from The Legend of Zelda: Ocarina of Time (remake).' },
     { titre: 'Bracelet Goron', domaine: 'impression', etat: 'termine', avancement: 100, exemple: false,
-      image: 'visuels/Impression 3D/Zelda/BraceletImg.webp', imageAlt: 'Bracelet Goron doré imprimé en 3D', imageAlt_en: 'Gold 3D-printed Goron Bracelet',
-      imageSurvol: 'visuels/Impression 3D/Zelda/Bracelet.webp',
+      image: 'visuels/Impression 3D/Zelda/BraceletImg.webp', image1x: 'visuels/Impression 3D/Zelda/BraceletImg-1x.webp', imageAlt: 'Bracelet Goron doré imprimé en 3D', imageAlt_en: 'Gold 3D-printed Goron Bracelet',
+      imageSurvol: 'visuels/Impression 3D/Zelda/Bracelet.webp', imageSurvol1x: 'visuels/Impression 3D/Zelda/Bracelet-1x.webp',
       lien: '',
       texte: 'Réplique du bracelet Goron de The Legend of Zelda: Ocarina of Time (remake), imprimée en 3D.',
       texte_en: '3D-printed replica of the Goron Bracelet from The Legend of Zelda: Ocarina of Time (remake).' },
     { titre: 'Faceplate « La Grande Vague »', domaine: 'impression', plateforme: 'Dock Nintendo Switch 2', plateforme_en: 'Nintendo Switch 2 dock', etat: 'termine', avancement: 100, exemple: false,
-      image: 'visuels/Impression 3D/Faceplates/BigWaveFaceplate.webp', imageAlt: 'Façade imprimée en 3D au motif de la grande vague', imageAlt_en: '3D-printed faceplate with a great wave design',
-      imageSurvol: 'visuels/Impression 3D/Faceplates/BigWaveFaceplatePrimpt.webp',
+      image: 'visuels/Impression 3D/Faceplates/BigWaveFaceplate.webp', image1x: 'visuels/Impression 3D/Faceplates/BigWaveFaceplate-1x.webp', imageAlt: 'Façade imprimée en 3D au motif de la grande vague', imageAlt_en: '3D-printed faceplate with a great wave design',
+      imageSurvol: 'visuels/Impression 3D/Faceplates/BigWaveFaceplatePrimpt.webp', imageSurvol1x: 'visuels/Impression 3D/Faceplates/BigWaveFaceplatePrimpt-1x.webp',
       lien: '',
       texte: 'Façade décorative pour le dock de la Nintendo Switch 2, imprimée en 3D au motif de la grande vague.',
       texte_en: 'Decorative faceplate for the Nintendo Switch 2 dock, 3D printed with a great wave design.' },
