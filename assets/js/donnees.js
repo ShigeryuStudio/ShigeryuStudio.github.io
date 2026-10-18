@@ -52,11 +52,11 @@ window.STUDIO = {
   */
   projets: [
     { titre: 'Fractal Snake', domaine: 'jeux', plateforme: 'Android', etat: 'termine', avancement: 100, exemple: false,
-      image: 'assets/img/fractal-snake.png', imageAlt: 'Icône du jeu Fractal Snake', imageAlt_en: 'Fractal Snake game icon',
+      image: 'assets/img/fractal-snake.webp', imageAlt: 'Icône du jeu Fractal Snake', imageAlt_en: 'Fractal Snake game icon',
       lien: 'https://play.google.com/store/apps/details?id=com.shigeryustudio.fractalsnake', lienTexte: 'Voir sur Google Play', lienTexte_en: 'View on Google Play',
       texte: 'Jeu Android disponible sur Google Play.', texte_en: 'Android game available on Google Play.' },
     { titre: 'WiiU GamePad Overlay', domaine: 'applications', plateforme: 'Windows', etat: 'termine', avancement: 100, exemple: false,
-      image: 'assets/img/wiiu-gamepad-overlay.png', imageAlt: 'Visuel de l’application WiiU GamePad Overlay', imageAlt_en: 'WiiU GamePad Overlay app visual',
+      image: 'assets/img/wiiu-gamepad-overlay.webp', imageAlt: 'Visuel de l’application WiiU GamePad Overlay', imageAlt_en: 'WiiU GamePad Overlay app visual',
       lien: 'https://shigeryu.itch.io/wiiu-gamepad-overlay', lienTexte: 'Voir sur itch.io', lienTexte_en: 'View on itch.io',
       texte: 'Application Windows disponible sur itch.io.', texte_en: 'Windows app available on itch.io.' },
     { titre: 'Épée Kokiri', domaine: 'impression', etat: 'termine', avancement: 100, exemple: false,

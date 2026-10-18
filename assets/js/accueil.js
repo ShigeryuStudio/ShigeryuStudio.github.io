@@ -88,6 +88,15 @@
     });
   }
 
+  // Les animations de survol ne sont téléchargées qu'au premier survol (ou focus clavier) de leur carte
+  function chargerSurvol(e) {
+    var carte = e.target.closest && e.target.closest('.projet');
+    var img = carte && carte.querySelector('.projet-survol[data-src]');
+    if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); }
+  }
+  $('galerie').addEventListener('pointerover', chargerSurvol);
+  $('galerie').addEventListener('focusin', chargerSurvol);
+
   // Chemins de visuels : les espaces et accents des noms de dossiers sont encodés pour l'adresse
   function chemin(c) { return esc(encodeURI(c)); }
 
@@ -96,7 +105,7 @@
     var titre = tr(p, 'titre');
     var visuel = p.image
       ? '<img src="' + chemin(p.image) + '" alt="' + esc(tr(p, 'imageAlt') || t('visuel.duProjet') + titre) + '" loading="lazy" data-icone="' + d.icone + '">' +
-        (p.imageSurvol ? '<img class="projet-survol" src="' + chemin(p.imageSurvol) + '" alt="" loading="lazy">' : '')
+        (p.imageSurvol ? '<img class="projet-survol" data-src="' + chemin(p.imageSurvol) + '" alt="">' : '')
       : visuelManquant(d.icone);
     var lien = p.lien
       ? '<a class="projet-lien" href="' + esc(p.lien) + '" target="_blank" rel="noopener">' + esc(tr(p, 'lienTexte') || t('projet.voir')) + ' ' + ico('sortie') + nouvelOnglet() + '</a>'

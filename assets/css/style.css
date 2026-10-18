@@ -241,7 +241,7 @@ h2.titre-main { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: .35em; tra
 .scintille { transform-box: fill-box; transform-origin: center; animation: scintille 2.4s ease-in-out infinite; }
 .scintille.t2 { animation-delay: -.8s; } .scintille.t3 { animation-delay: -1.6s; }
 
-.bandeau { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: clamp(32px, 5vw, 56px); padding: 18px 16px; background: var(--violet); border-block: var(--contour); font-family: var(--f-pixel); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: .95rem; transform: rotate(-1deg) scale(1.02); }
+.bandeau { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: clamp(32px, 5vw, 56px); padding: 18px 16px; background: var(--violet); color: #fff; border-block: var(--contour); font-family: var(--f-pixel); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; font-size: .95rem; transform: rotate(-1deg) scale(1.02); }
 .bandeau { gap: 10px 18px; }
 .bandeau li { display: inline-flex; align-items: center; }
 .bandeau li + li::before { content: "✦"; color: var(--jaune); margin-right: 18px; }
